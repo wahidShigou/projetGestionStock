@@ -1,0 +1,38 @@
+{% extends 'accueil.html.twig' %}
+
+{% block title %} Liste des produits {% endblock %}
+
+{% block body %}
+    <div class="row">
+    <div class="container col-md-6 col-lg-6 col-sm-6 col-xs-6">
+        <div class="card">
+            <div class="card-header">Gestion de la liste des produit</div>
+            <div class="card-body">
+                <table class="table table-striped table-dark">
+                    <tr>
+                        <th>Identifiant</th>
+                        <th>Libelle</th>
+                        <th>Quantite en stock</th>
+                    </tr>
+                    {% for p in produits %}
+                        <tr>
+                            <td>{{ p.id }}</td>
+                            <td>{{ p.libelle }}</td>
+                            <td>{{ p.qtStock }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+        <div class="container col-md-6 col-lg-6 col-sm-6 col-xs-6">
+            <div class="card">
+                <div class="card-header">Gestion de la liste des produit</div>
+                <div class="card-body">
+                    {{ form(form) }}
+                    <!-- { { form_start(form, {'action': path('target_route'), 'method': 'GET'}) } } -->
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
